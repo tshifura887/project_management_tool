@@ -18,11 +18,8 @@
   </p>
 <% end%>
 
-<% @team_member_projects.each do |project|%>
-  <%= render project %>
-  <p>
-    <%= link_to "Show this project", project %>
-  </p>
+<% @team_member_projects.each do |team_assignment|%>
+  <%= render partial: "team_assignments/team_assignment", locals: { project: team_assignment.project } %>
 <% end%>
 
 <% if current_user.admin?%>

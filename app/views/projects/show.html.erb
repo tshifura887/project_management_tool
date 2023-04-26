@@ -1,6 +1,13 @@
 
 <%= render @project %>
 
+<h3>Team Members</h3>
+<ol>
+  <% @project_team_members.each do |member| %>
+    <li><%= member.first_name + " " +  member.last_name %></li>
+  <% end %>
+</ol>
+
 <div>
   <% if current_user.admin?%>
     <%= link_to 'Assign team member', new_project_team_assignment_path(project_id: @project.id) %>
