@@ -3,10 +3,10 @@ class CreateTasks < ActiveRecord::Migration[7.0]
     create_table :tasks do |t|
       t.string :name
       t.text :description
-      t.date :start_date
-      t.date :end_date
+      t.integer :days
+      t.integer :days_left
       t.integer :priority
-      t.integer :status
+      t.string :status
       t.references :project, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

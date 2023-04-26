@@ -1,0 +1,28 @@
+<div id="<%= dom_id project %>">
+  <p>
+    <strong>Name:</strong>
+    <%= project.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= project.description %>
+  </p>
+
+  <p>
+    <strong>Start date:</strong>
+    <%= project.start_date %>
+  </p>
+
+  <p>
+    <strong>End date:</strong>
+    <%= project.end_date %>
+  </p>
+
+  <% if project.project_manager.present?%>
+    <p>
+      <strong>Project Manager:</strong>
+      <%= project.project_manager.first_name%>  <%= project.project_manager.last_name%>
+    </p>
+  <% end %>
+</div>

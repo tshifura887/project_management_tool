@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
-  task: one
+  project: one
   user: one
 
 two:
-  content: MyText
-  task: two
+  project: two
   user: two
