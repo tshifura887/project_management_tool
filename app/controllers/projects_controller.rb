@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @project_team_members = @project.team_members
   end
 
   # GET /projects/new
