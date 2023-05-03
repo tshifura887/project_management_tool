@@ -9,10 +9,15 @@ class Ability
     if user.admin?
       can :manage, Project
       can :manage, TeamAssignment
+      can :read, Task
     elsif user.project_manager?
       can :read, Project
+      can :read, TeamAssignment
+      can :manage, Task
     elsif user.team_member?
       can :read, Project
+      can :read, TeamAssignment
+      can :manage, Task
     else
       cannot :manage, :all
     end

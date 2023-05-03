@@ -1,0 +1,37 @@
+<%= form_with(model: [@project, @task], url: project_task_path(@project, @task), method: :put, multipart: true) do |form| %>
+  <% if @task.attachments.any? %>
+    <% @task.attachments.each do |attachment| %>
+      <%= form.fields_for :attachments, attachment do |attachment_fields| %>
+        <%= attachment_fields.hidden_field :_destroy %>
+        <% if attachment.file.attached? %>
+          <span class="attachment-file-name"><%= attachment.file.filename %></span>
+          <% image_url = url_for(attachment.file) %>
+          <%= image_tag(image_url) %>
+          <%= link_to "Delete", project_task_attachment_path(@task, attachment), method: :delete, data: { confirm: "Are you sure you want to delete this attachment?" } %>
+        <% else %>
+          <%= attachment_fields.file_field :file %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <div class="attachment-template hidden">
+    <%= form.fields_for :attachments, Attachment.new do |attachment_fields| %>
+      <%= attachment_fields.file_field :file %>
+      <span class="attachment-file-name"></span>
+    <% end %>
+  </div>
+  
+  <div id="attachments">
+    <% if @task.attachments.empty? %>
+      <div class="attachment">
+        <%= form.fields_for :attachments, Attachment.new do |attachment_fields| %>
+          <%= attachment_fields.file_field :file %>
+          <span class="attachment-file-name"></span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  
+  <%= button_to "Add Attachment", "#", class: "add-attachment" %>
+<% end %>

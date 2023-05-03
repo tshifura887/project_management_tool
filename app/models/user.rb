@@ -15,4 +15,8 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   has_many :assigned_projects, through: :team_assignments, source: :project
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

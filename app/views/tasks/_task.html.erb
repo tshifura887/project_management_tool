@@ -33,10 +33,8 @@
     <strong>Project:</strong>
     <%= task.project_id %>
   </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= task.user_id %>
-  </p>
-
+  
+  <% if task.assignee.present?%>
+    <p>This Task is assigned to <strong><%= task.assignee.full_name %></strong></p>
+  <% end %>
 </div>

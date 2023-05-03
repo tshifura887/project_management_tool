@@ -52,6 +52,11 @@ gem 'devise'
 
 gem 'cancancan', '~> 3.5'
 
+gem 'pry-rails', '~> 0.3.9'
+
+gem 'cocoon'
+
+gem 'sendgrid-ruby', '~> 5.0'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

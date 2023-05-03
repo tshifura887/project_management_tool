@@ -1,0 +1,26 @@
+<% if @comment.present? %>
+  <%= form_with(model: [@task.project, @task, @comment], url: project_task_comment_path(@task.project, @task, @comment), method: :patch) do |form| %>
+    <%= form.hidden_field :id %>
+    <div>
+      <%= form.label :body, style: "display: block" %>
+      <%= form.text_area :body %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% else %>
+  <%= form_with(model: [@task.project, @task, @task.comments.build], url: project_task_comments_path(@task.project, @task)) do |form| %>
+    <div>
+      <%= form.label :body, style: "display: block" %>
+      <%= form.text_area :body %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% end %>
+
+

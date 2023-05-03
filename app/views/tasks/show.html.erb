@@ -1,10 +1,27 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @task %>
+<% if !current_user.admin?%>
+  <%= render "assignee", task: @task %>
+  <%= render "file_attachment", task: @task%>
+<% end %>
+
+<div id="comments">
+  <% @task.comments.each do |comment| %>
+    <%= render comment %>
+    <p>
+      <%= link_to "Edit", edit_project_task_comment_path(@project, @task, comment)%> |
+      <%= link_to "Delete", project_task_comment_path(@project, @task, comment), method: :delete, data: { confirm: "Are you sure you want to delete this comment?" } %>
+    </p>
+  <% end %>
+</div>
+
+<h1>Create Comment</h1>
+<%= render partial: "comments/form", locals: { task: @task, comment: @comment } %>
 
 <div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
-
-  <%= button_to "Destroy this task", @task, method: :delete %>
+  <% if !current_user.admin?%>
+    <%= link_to "Edit this task", edit_project_task_path(@project, @task) %>
+    <%= button_to "Destroy this task",project_task_path(@project, @task), method: :delete %>
+  <% end %>
 </div>
+
+<%= link_to "Back to tasks", project_tasks_path(@project) %>

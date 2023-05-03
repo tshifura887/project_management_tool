@@ -3,6 +3,6 @@
 
 <%= form_with(model: [@project, @team_assignment], url: project_team_assignments_path(@project)) do |form| %>
   <%= form.label :user_id, 'Team member' %>
-  <%= form.collection_select :user_id, User.where(role: "team_member"), :id, ->(user) { "#{user.first_name} #{user.last_name}" }, prompt: "Assign team member" %>
+  <%= form.collection_select :user_id, User.where(role: "team_member"), :id, ->(user) { user.full_name }, prompt: "Assign team member" %>
   <%= form.submit 'Assign team member' %>
 <% end %>

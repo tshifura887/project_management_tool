@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project Updated Notification</title>
+  </head>
+  <body>
+    <p>Dear <%= @project_manager_name %>,</p>
+    <p>The <%= current_user.name %> user has updated the project <%= @project.name %>.</p>
+    <p>Here are the details:</p>
+    <ul>
+        <li><strong>Name:</strong> <%= @project.name %></li>
+        <li><strong>Description:</strong> <%= @project.description %></li>
+    <!-- ... -->
+    </ul>
+    <p>Thank you,</p>
+    <p>Your Application Name Team</p>
+  </body>
+</html>

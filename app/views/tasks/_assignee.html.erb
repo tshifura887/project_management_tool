@@ -1,0 +1,4 @@
+<%= form_with(model: [@project, @task], url: project_task_path(@project, @task), method: :put) do |form| %>
+  <%= form.collection_select(:user_id, @project.team_members + [@project.project_manager], :id, :full_name) %>
+  <%= form.submit %>
+<% end %>
