@@ -10,14 +10,17 @@ class Ability
       can :manage, Project
       can :manage, TeamAssignment
       can :read, Task
+      can :read, Comment
     elsif user.project_manager?
       can :read, Project
       can :read, TeamAssignment
       can :manage, Task
+      can :manage, Comment
     elsif user.team_member?
       can :read, Project
       can :read, TeamAssignment
       can :manage, Task
+      can :manage, Comment
     else
       cannot :manage, :all
     end

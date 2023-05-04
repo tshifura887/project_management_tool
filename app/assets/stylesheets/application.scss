@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+@import 'auth';
+@import 'flex';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #DEF2F1;
+    font-family: 'Inter', sans-serif;
+  }
+  

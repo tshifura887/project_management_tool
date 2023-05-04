@@ -1,0 +1,29 @@
+.btn {
+  padding: 10px;
+  background: #FEFFFF;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.btn {
+  &-primary {
+    background: #DEF2F1;
+    color: #17252A;
+  }
+
+  &-secondary {
+    background: #3AAFA9;
+    color: #17252A;
+  }
+
+  &-tertiary {
+    background: #2B7A78;
+    color:  #FEFFFF;
+
+    &-dark {
+      background: #17252A;
+      color:  #FEFFFF;
+    }
+  }
+}
